@@ -86,7 +86,7 @@ if __name__ == '__main__':
         registration_network.train(True)
 
     optimizer = torch.optim.AdamW(
-        registration_network.parameters(), lr=learning_rate, weight_decay=0, amsgrad=True)
+        registration_network.parameters(), lr=learning_rate, weight_decay=1e-2, amsgrad=True)
     lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, factor=0.1, patience=2, cooldown=0)
     sim_loss = NCC(window_size=9)
